@@ -1,24 +1,3 @@
-#------------------------------------------------------------------------------
-# Variables
-#------------------------------------------------------------------------------
-variable "pet_length" {
-  type    = number
-  default = 3
-}
-
-variable "pet_prefix" {
-  type    = string
-  default = "test"
-}
-
-variable "pet_separator" {
-  type    = string
-  default = "-"
-}
-
-#------------------------------------------------------------------------------
-# Resources
-#------------------------------------------------------------------------------
 resource "random_pet" "test0" {
   length    = var.pet_length
   prefix    = var.pet_prefix
@@ -119,16 +98,4 @@ resource "random_pet" "testg" {
   length    = var.pet_length
   prefix    = var.pet_prefix
   separator = var.pet_separator
-}
-
-#------------------------------------------------------------------------------
-# Outputs
-#------------------------------------------------------------------------------
-output "test0" {
-  value = random_pet.test0.id
-}
-
-output "test1" {
-  value     = random_pet.test1.id
-  sensitive = true
 }
