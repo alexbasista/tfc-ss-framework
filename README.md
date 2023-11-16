@@ -9,9 +9,9 @@ Automation tooling for Terraform Cloud (TFC) or Terraform Enterprise (TFE) self-
 - VCS API token
 
 ## Setup
-- Fork this repo (or copy the contents into your own dedicated repo)
-- Update the contents of `templates/main.tf` with the Terraform code you want to deploy.
-- Update the contents of `templates/template.tfvars.tpl` with the applicable Terraform variable keys for your deployments.
+1. Fork this repo (or copy the contents into your own repo)
+2. Update the contents of `templates/*.tf` with your own Terraform code that you want to deploy.
+3. Update the contents of `templates/template.tfvars.tpl` with the applicable Terraform variable keys for your deployments.
 
 See the example [templates](./templates/) directory for reference.
 
@@ -24,12 +24,12 @@ The [scripts](./scripts/) directory contains scripts that can be run interactive
 Set up the required environment variables:
 ```sh
 # Terraform Cloud
-export TFE_TOKEN=
-export TFE_ORG=
+export TFE_TOKEN=<TFC/E API token>
+export TFE_ORG=<TFC/E Organization name>
 
 # GitLab
-export GL_TOKEN=
-export GL_PROJECT_ID=
+export GL_TOKEN=<GitLab PAT>
+export GL_PROJECT_ID=<GitLab Project ID>
 ```
 
 Execute the script:
@@ -45,4 +45,4 @@ create_tfc_ws_gl.py --name my-new-ws \
                     --var pet_separator _ \
                     --outputs test0 test1
 ```
-> In this example, my Terraform configuration calls for (3) input variables. The values for each of them are specified using the `--var` argument (optional). The `--outputs` argument is also optional, and will return any output values from the output key(s) that are specified.
+> In this example, the Terraform configuration calls for (3) input variables. The values for each of them are specified using the `--var` argument (optional). The `--outputs` argument is also optional, and will return any output values from the output key(s) that are specified.
